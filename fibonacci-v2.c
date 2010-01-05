@@ -110,6 +110,6 @@ int main(int argc, char** argv)
     // Check the Input
 	if ( argc == 2 ) input = atoi(argv[1]); else return (1);
 
-	printf("resultULT: fibonacci-v2(%d) = %lu\n\n", input, fibonacci_fast(input));
+	printf("RESULT: fibonacci-v2(%d) = %lu\n\n", input, fibonacci_fast(input));
 	return (0);
 }
