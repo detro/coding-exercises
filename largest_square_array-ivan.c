@@ -67,7 +67,9 @@ unsigned int measure_diagonal(
     }
 }
 
-void calculate(const unsigned int* altitude_map, const unsigned int rows, const unsigned int cols) {
+void calculate(const unsigned int* altitude_map,
+        const unsigned int rows,
+        const unsigned int cols) {
 
     int best_number = -1;
     int best_dimension = -1;
@@ -76,8 +78,8 @@ void calculate(const unsigned int* altitude_map, const unsigned int rows, const 
     int r, c;
     int temp_dimension = -1;
     
-    for (r = 0; r < rows; r++) {
-        for (c = 0; c < cols; c++) {
+    for (r = 0; r < rows-1; r++) { // Avoid last row: would be 1 anyway
+        for (c = 0; c < cols-1; c++) { // Avoid last column: would be 1 anyway
             if ( temp_dimension <= (int)(cols-c) && temp_dimension <= (int)(rows-r) ) {
                 // Measure the diagonal of the matrix starting at position [r, c]
                 temp_dimension = measure_diagonal(altitude_map, rows, cols, c, r);
@@ -98,8 +100,8 @@ void calculate(const unsigned int* altitude_map, const unsigned int rows, const 
         }
     }
 
-    printf("ACTUAL   : contains a %dx%d grid of %ds at (%d , %d)\n", best_dimension, best_dimension, best_number, best_row, best_col);
-
+    printf("ACTUAL   : contains a %dx%d grid of %ds at (%d , %d)\n",
+        best_dimension, best_dimension, best_number, best_row, best_col);
 }
 
 int main(int argc, char** argv) {
