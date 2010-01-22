@@ -61,24 +61,23 @@ void polite_merge_sort(int* array, const unsigned int l_limit, const unsigned in
 }
 
 int main(const int argc, const char** argv) {
-#define INPUT_ARRAY_SIZE 50
+    #define INPUT_ARRAY_SIZE 1000000 // YES! 1 Million
 
     int i;
-    int arr[INPUT_ARRAY_SIZE] = {
-        23908, 3231, 2213, 3241, 4214, 6546, 76765, 7665, 43544, 767867,
-        50, 23, 321, 22, 34421, 42, 43, 22, 0, 54,
-        93, 48, 20, 22, 1, 9, 8, 4, 77, 22,
-        23908, 3231, 2213, 3241, 4214, 6546, 76765, 7665, 43544, 767867,
-        87686, 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+    int *arr;
+    arr = malloc(INPUT_ARRAY_SIZE * sizeof(int));
     int sup_arr[INPUT_ARRAY_SIZE];
+    
+    sranddev();
+    for ( i = 0; i < INPUT_ARRAY_SIZE; ++i ) {
+        arr[i] = rand();
+    }
     
     polite_merge_sort(arr, 0, INPUT_ARRAY_SIZE-1, sup_arr);
     
     printf("----- SOLUTION -----\n");
-    printf("%d\t", arr[0]);
-    for ( i = 1; i < INPUT_ARRAY_SIZE; ++i ) {
-        printf("%d\t", arr[i]);
-        if ( i % 9 == 0 ) printf("\n");
+    for ( i = 0; i < INPUT_ARRAY_SIZE; ++i ) {
+        printf("#%d: %d\n", i, arr[i]);
     }
     printf("\n------- END --------\n");
 }
