@@ -25,11 +25,9 @@ int main(int argc, char *argv[])
     qDebug() << "=== DONE REBUILDING ===";
 
     // Test
-    if ( inOrderVisit == rebuilder.generateInOrderVisit(treeRebuilt) ) {
-        if ( preOrderVisit == rebuilder.generatePreOrderVisit(treeRebuilt) ) {
-            qDebug() << "Rebuilding Result: SUCCESS";
-            return EXIT_SUCCESS;
-        }
+    if ( inOrderVisit == rebuilder.generateInOrderVisit(treeRebuilt) && preOrderVisit == rebuilder.generatePreOrderVisit(treeRebuilt) ) {
+        qDebug() << "Rebuilding Result: SUCCESS";
+        return EXIT_SUCCESS;
     }
 
     qDebug() << "Rebuilding Result: FAILURE";
