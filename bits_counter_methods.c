@@ -24,28 +24,16 @@ unsigned int bits_counter_v1(unsigned int x) {
 
 unsigned int bits_counter_v2(unsigned int x) {
     unsigned int count = 0;
-    // "Hashmap" of the values for the least significant 4 bits
+    // "Hashmap" of the values for least significant 4 bits
     unsigned int int_to_bits_count[16] = {
-        0, // 0  00
-        1, // 1  01
-        1, // 2  10
-        2, // 3  11
-        1, // 4  100
-        2, // 5  101
-        2, // 6  110
-        3, // 7  111
-        1, // 8  1000
-        2, // 9  1001
-        2, // 10 1010
-        3, // 11 1011
-        2, // 12 1100
-        3, // 13 1101
-        3, // 14 1110
-        4  // 15 1111
+        0, 1, 1, 2, // 0=00, 1=01, 2=10, 3=11
+        1, 2, 2, 3, // 4=100, 5=101, 6=110, 7=111
+        1, 2, 2, 3, // 8=1000, 9=1001, 10=1010, 11=1011
+        2, 3, 3, 4  // 12=1100, 13=1101, 14=1110, 15=1111
     };
     
     while ( x != 0 ) {
-        // Add the bits count of the least significant 4 bits
+        // Add the bits count of least significant 4 bits
         count += int_to_bits_count[ x & 15 ];
         x >>= 4;
     }
