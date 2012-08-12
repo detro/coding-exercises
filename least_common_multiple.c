@@ -7,6 +7,11 @@ u_long least_common_multiple(u_long a, u_long b) {
     u_long multi_a = a, factor_a = 1;
     u_long multi_b = b, factor_b = 1;
 
+    // Guarding from 0 input - thanks John ;)
+    if (a == 0 || b == 0) {
+        return 0;
+    }
+
     while(multi_a != multi_b) {
         if (multi_a < multi_b) {
             multi_a = a * ++factor_a;
