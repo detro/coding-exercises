@@ -1,0 +1,4 @@
+[package]
+name = "find_the_odd_one"
+version = "0.1.0"
+authors = ["Ivan De Marino <detronizator@gmail.com>"]
