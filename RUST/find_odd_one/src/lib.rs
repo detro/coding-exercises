@@ -17,7 +17,7 @@ pub fn find_odd_one_using_xor(input: Vec<i32>) -> i32 {
 /// Uses a Set (an HashSet) to track the odd/even times presence of numbers.
 ///
 /// The ides is to add an element if absent, and remove it if present.
-/// Given the simmetry of the operation, if a nummber appear an odd number of
+/// Given the symmetry of the operation, if a number appear an odd number of
 /// times, it will left alone in the Set.
 pub fn find_odd_one_using_set(input: Vec<i32>) -> i32 {
   let mut seen = HashSet::new();
