@@ -8,13 +8,9 @@ use prime_number_generators::*;
 const DEFAULT_N: usize = 1_000_000usize;
 
 fn main() {
-  let n = match env::args().skip(1).next() {
-    Some(x) => match x.parse::<usize>() {
-      Ok(y) => y,
-      Err(_) => DEFAULT_N
-    },
-    None => DEFAULT_N
-  };
+  let n: usize = env::args().skip(1).next()
+        .and_then(|x| x.parse().ok())
+        .unwrap_or(DEFAULT_N);
 
   println!("Calculating the #{} prime\n", n);
 
