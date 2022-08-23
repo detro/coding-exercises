@@ -16,5 +16,5 @@ fn main() {
 
   let sw = Stopwatch::start_new();
   let nth_prime = simple::find(&n);
-  println!("* Found prime {} using the 'simple' module and it took {}ms", nth_prime, sw.elapsed().num_milliseconds());
+  println!("* Found prime {} using the 'simple' module and it took {}ms", nth_prime, sw.elapsed().as_millis());
 }

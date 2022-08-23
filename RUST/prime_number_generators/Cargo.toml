@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["Ivan De Marino <detronizator@gmail.com>"]
 
 [dependencies]
-stopwatch = "0.0.6"
+stopwatch = "0.0.7"
